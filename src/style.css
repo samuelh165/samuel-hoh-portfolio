@@ -34,7 +34,7 @@ body{
 .index{
   padding:var(--pad);
   font-size:var(--fs);
-  line-height:1.22;
+  line-height:1.62;         /* roomy enough that decor never touches the next line */
   letter-spacing:-0.03em;   /* Figma: -1.44px @ 48px */
   word-spacing:0.08em;
 }
@@ -48,10 +48,10 @@ body{
 /* ---------- 3D FACE (inline, replaces the old logo img) ---------- */
 .face-slot{
   display:inline-block;
-  height:2.1em;                 /* Figma: 104px face vs 48px type */
+  height:1.5em;
   aspect-ratio:78/104;
   vertical-align:middle;
-  margin:-0.55em 0.12em -0.45em 0;  /* overhangs the line, Figma-style */
+  margin:0 0.14em 0 0;
   cursor:pointer;
   opacity:0;
 }
@@ -71,8 +71,8 @@ a.lnk.u .w{text-decoration:underline;text-decoration-thickness:0.055em;text-unde
 .inl{
   display:inline-block;
   vertical-align:middle;
-  height:1.35em;                 /* Figma: 65px blocks vs 48px type */
-  margin:-0.28em 0.12em -0.22em; /* taller than the line, doesn't blow out lh */
+  height:1.3em;
+  margin:0 0.14em;
   background:var(--block);
   background-size:cover;
   background-position:center;
@@ -83,7 +83,7 @@ a.lnk.u .w{text-decoration:underline;text-decoration-thickness:0.055em;text-unde
 .inl.r11{aspect-ratio:1/1;}
 .inl.r43{aspect-ratio:4/3;}
 .inl.r169{aspect-ratio:16/9;}
-.inl.r34{aspect-ratio:3/4;height:1.9em;margin-block:-0.55em -0.4em;} /* Figma portraits overhang more (93px) */
+.inl.r45{aspect-ratio:4/5;}   /* real export ratio for the portrait crops */
 
 .sym{
   display:inline-block;
@@ -157,7 +157,7 @@ a.lnk.u .w{text-decoration:underline;text-decoration-thickness:0.055em;text-unde
 .sheet-head .w{opacity:0;}
 .sheet-head .w.on{opacity:1;}
 .sheet-head .w.loading{color:var(--accent);}
-.sheet-head .face-slot{height:1.6em;margin:-0.35em 0.14em -0.3em 0;}
+.sheet-head .face-slot{height:1.15em;margin:0 0.14em 0 0;}
 
 .learn{
   color:inherit;

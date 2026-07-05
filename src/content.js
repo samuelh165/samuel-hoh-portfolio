@@ -61,26 +61,23 @@ export const PLACEHOLDER_CASE = [
      31 Premier · 33 Tribal · 35 Fujitsu. · 36 Hotels.com. · 37 Nespresso. ·
      38 Elespacio. · 39 That's · 43 If · 48 let's
 
-   Image slots load /images/decor/pos-XX.jpg — drop the Figma exports
-   in with those names (see public/images/decor/README.txt). A missing
-   file just shows the black placeholder block.
+   Images live in public/images/decor/pos-XX.jpg — all 11 are in place.
    ============================================================ */
 const BASE = import.meta.env.BASE_URL;
 const img = (pos, ratio) => ({ pos, kind: 'img', ratio, src: `${BASE}images/decor/pos-${String(pos).padStart(2, '0')}.jpg` });
 
 export const DECOR_SCHEDULE = [
-  img(2,  'r169'), /* golf shot        — before "Product Designer."        (Figma 2264:320) */
-  img(8,  'r34'),  /* portrait         — before "LinkedIn↗"                (Figma 2264:376) */
-  img(9,  'r169'), /* fashion shot     — before "Mitchells & Butler."      (Figma 2264:325) */
-  img(15, 'r169'), /* football poster  — before "The Sunday Times."        (Figma 2264:330) */
-  img(18, 'r34'),  /* ceramics         — before "Monokoto."                (Figma 2264:378) */
-  img(22, 'r169'), /* app UI           — before "National Bank Australia." (Figma 2264:337) */
-  img(25, 'r34'),  /* phone UI         — before "Australian Super."        (Figma 2264:374) */
-  img(27, 'r169'), /* UEFA stage       — before "Volkswagen."              (Figma 2264:341) */
-  img(30, 'r34'),  /* match photo      — before "Builder.io."              (Figma 2264:344) */
-  img(37, 'r169'), /* car              — before "Nespresso."               (Figma 2264:350) */
-  img(38, 'r169'), /* editorial        — before "Elespacio."               (Figma 2264:382) */
-  { pos: 39, kind: 'sym', sym: '\u263A\uFE0E' } /* the keeper ☺ — before "That's" */
+  img(2,  'r169'), /* golf, European Tour    — before "Product Designer."        */
+  img(8,  'r169'), /* woman, striped swimsuit — before "LinkedIn↗"                */
+  img(9,  'r45'),  /* man with medicine ball  — before "Mitchells & Butler."      */
+  img(15, 'r169'), /* Aubameyang, UEFA.com    — before "The Sunday Times."        */
+  img(18, 'r45'),  /* Le Creuset pots         — before "Monokoto."                */
+  img(22, 'r169'), /* Premier League app UI   — before "National Bank Australia." */
+  img(25, 'r45'),  /* The Times app           — before "Australian Super."        */
+  img(27, 'r169'), /* UEFA Christmas party    — before "Volkswagen."              */
+  img(30, 'r45'),  /* football legends poster — before "Builder.io."              */
+  img(37, 'r169'), /* Volkswagen T-Cross      — before "Nespresso."               */
+  img(38, 'r169'), /* Eurovision, b&w         — before "Elespacio."               */
 ];
 
 export const WORD_DELAY = 46;  /* ms between words   */

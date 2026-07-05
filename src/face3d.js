@@ -7,6 +7,10 @@
    ============================================================ */
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const SPIN_SPEED = 0.55; /* rad/s — slow idle turntable */
+/* The Tripo3D scan's front doesn't line up with the default camera axis.
+   Checked by rendering the mesh from four angles — the front sits ~90°
+   off. If it still loads side-on for you, nudge this by ±Math.PI/2. */
+const INITIAL_YAW = Math.PI / 2;
 
 export function createFace(onHome) {
   const slot = document.createElement('span');
@@ -81,6 +85,7 @@ async function init(slot, ready) {
     const s = 1.15 / Math.max(size.x, size.y, size.z);
     head.scale.setScalar(s);
     pivot.add(head);
+    pivot.rotation.y = INITIAL_YAW;
     render(0);
   });
 
