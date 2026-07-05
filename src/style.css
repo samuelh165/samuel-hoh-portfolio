@@ -1,0 +1,224 @@
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bg:#fd1700;      /* poster red (Figma 2264:312) */
+  --ink:#111111;     /* black type */
+  --accent:#94F643;  /* hover green + word-load flash */
+  --sheet:#FFFFFF;
+  --block:#111111;
+  --pad:clamp(20px,4vw,48px);
+  --fs:clamp(28.8px,5vw,69.6px);
+  --fs-sheet:clamp(20px,3.2vw,44px);
+}
+
+@font-face{
+  font-family:'PP Monument Normal';
+  src:url('/fonts/PPMonumentNormal-Bold.woff2') format('woff2');
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  background:var(--bg);
+  font-family:'PP Monument Normal','Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight:700;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- INDEX ---------- */
+.index{
+  padding:var(--pad);
+  font-size:var(--fs);
+  line-height:1.22;
+  letter-spacing:-0.03em;   /* Figma: -1.44px @ 48px */
+  word-spacing:0.08em;
+}
+.index .w{
+  opacity:0;
+  display:inline;
+}
+.index .w.on{opacity:1;}
+.index .w.loading{color:var(--accent);}
+
+/* ---------- 3D FACE (inline, replaces the old logo img) ---------- */
+.face-slot{
+  display:inline-block;
+  height:2.1em;                 /* Figma: 104px face vs 48px type */
+  aspect-ratio:78/104;
+  vertical-align:middle;
+  margin:-0.55em 0.12em -0.45em 0;  /* overhangs the line, Figma-style */
+  cursor:pointer;
+  opacity:0;
+}
+.face-slot.on{opacity:1;}
+.face-slot canvas{width:100%;height:100%;display:block;}
+.face-slot:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+
+a.lnk{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+a.lnk:hover, a.lnk:focus-visible{color:var(--accent);outline:none;}
+a.lnk.u .w{text-decoration:underline;text-decoration-thickness:0.055em;text-underline-offset:0.09em;}
+
+/* ---------- INLINE DECOR (images + symbols) ---------- */
+.inl{
+  display:inline-block;
+  vertical-align:middle;
+  height:1.35em;                 /* Figma: 65px blocks vs 48px type */
+  margin:-0.28em 0.12em -0.22em; /* taller than the line, doesn't blow out lh */
+  background:var(--block);
+  background-size:cover;
+  background-position:center;
+  border-radius:2px;
+  opacity:0;
+}
+.inl.on{opacity:1;}
+.inl.r11{aspect-ratio:1/1;}
+.inl.r43{aspect-ratio:4/3;}
+.inl.r169{aspect-ratio:16/9;}
+.inl.r34{aspect-ratio:3/4;height:1.9em;margin-block:-0.55em -0.4em;} /* Figma portraits overhang more (93px) */
+
+.sym{
+  display:inline-block;
+  font-weight:700;
+  font-size:1.3em;
+  line-height:1;
+  vertical-align:-0.12em;
+  opacity:0;
+  color:var(--ink);
+}
+.sym.on{opacity:1;}
+
+.icon-glyph{
+  display:inline-block;
+  width:1.05em;
+  height:1.05em;
+  vertical-align:-0.14em;
+  color:var(--ink);
+  opacity:0;
+}
+.icon-glyph.on{opacity:1;}
+.icon-glyph svg{width:100%;height:100%;display:block;}
+
+/* ---------- SHEET OVERLAY ---------- */
+.sheet-wrap{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+}
+.sheet{
+  position:absolute;
+  top:clamp(28px,5vh,56px);
+  left:0;right:0;bottom:0;
+  background:var(--sheet);
+  border-radius:24px 24px 0 0;
+  padding:var(--pad);
+  overflow-y:auto;
+  transform:translateY(103%);
+  transition:transform .45s cubic-bezier(.32,.72,.28,1);
+}
+.sheet-wrap.open{pointer-events:auto;}
+.sheet-wrap.open .sheet{transform:translateY(0);}
+
+.sheet-nav{
+  position:sticky;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  z-index:2;
+}
+.sheet-nav button{
+  pointer-events:auto;
+  background:none;border:none;
+  font-family:inherit;
+  font-weight:700;
+  font-size:clamp(18px,2.4vw,28px);
+  color:var(--ink);
+  cursor:pointer;
+  line-height:1;
+  padding:6px;
+}
+.sheet-nav button:hover,.sheet-nav button:focus-visible{color:var(--accent);outline:none;}
+
+.sheet-head{
+  font-size:var(--fs-sheet);
+  line-height:1.28;
+  letter-spacing:-0.03em;
+  margin-top:clamp(28px,4vh,44px);
+}
+.sheet-head .w{opacity:0;}
+.sheet-head .w.on{opacity:1;}
+.sheet-head .w.loading{color:var(--accent);}
+.sheet-head .face-slot{height:1.6em;margin:-0.35em 0.14em -0.3em 0;}
+
+.learn{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+.learn:hover{color:var(--accent);}
+.learn.less{color:var(--accent);}
+
+/* carousel */
+.carousel{
+  display:flex;
+  gap:clamp(14px,2vw,28px);
+  overflow-x:auto;
+  margin-top:clamp(32px,6vh,72px);
+  padding-bottom:12px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.carousel::-webkit-scrollbar{display:none;}
+.slide{
+  flex:0 0 auto;
+  width:clamp(220px,26vw,420px);
+  aspect-ratio:3/4;
+  background:var(--block);
+  background-size:cover;
+  background-position:center;
+  border-radius:2px;
+}
+.carousel.hidden{display:none;}
+
+/* case study text */
+.case{
+  display:none;
+  margin-top:clamp(36px,6vh,80px);
+  max-width:1200px;
+  column-count:2;
+  column-gap:clamp(32px,4vw,64px);
+  font-size:clamp(15px,1.35vw,19px);
+  line-height:1.55;
+  font-weight:700;
+  letter-spacing:0;
+}
+.case.show{display:block;animation:fadeUp .4s ease both;}
+.case p{
+  text-indent:2.2em;
+  margin-bottom:0;
+  break-inside:avoid-column;
+}
+.case p:first-child{margin-top:0;}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:none;}
+}
+
+@media (max-width:760px){
+  .case{column-count:1;}
+  .slide{width:72vw;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sheet{transition:none;}
+  .case.show{animation:none;}
+}
