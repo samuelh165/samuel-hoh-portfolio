@@ -185,6 +185,7 @@ function openProject(item) {
   const copy = item.caseCopy || PLACEHOLDER_CASE;
   caseText.innerHTML = copy.map(p => `<p>${p}</p>`).join('');
   caseText.classList.toggle('show', !hasImages); /* no images → straight to text */
+  caseText.classList.toggle('single', !hasImages); /* full-width left column, no split */
 
   sheet.scrollTop = 0;
   sheetWrap.classList.add('open');
