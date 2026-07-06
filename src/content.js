@@ -11,7 +11,10 @@ export const CONTENT = [
   { t: 'text',    s: 'Product Designer.' },
   { t: 'text',    s: 'Design Systems.' },
   { t: 'sheet',   s: 'About me.',
-    caseCopy: ['About copy coming soon — Samuel will drop his story in here.'] },
+    caseCopy: [
+      `Principal Product Designer specialising in design systems. Currently tokenising foundations for a multi-brand, multi-mode design system. My work most recently has focused on tokenisation, multi-theming, component build, and aligning and creating foundations that support complex product environments across e-commerce, media/tech, and hospitality.`,
+      `While systems and scalable foundations are my core focus, I'm equally comfortable working end-to-end, from research and ideation through to high-fidelity UI and prototyping.`
+    ] },
   { t: 'ext',     s: 'LinkedIn↗', href: 'https://www.linkedin.com/in/samuelhohuk/' },
 
   { t: 'project', s: 'Mitchells & Butler.', images: 8, caseCopy: [
@@ -101,7 +104,7 @@ export const CONTENT = [
   { t: 'text',    s: 'That\u2019s everything, for now.' },
   { t: 'text',    s: 'If any of this resonates,' },
   { t: 'sheet',   s: 'let\u2019s talk.', underline: true,
-    caseCopy: ['Contact details coming soon — email and phone will live here.'] }
+    caseCopy: ['hellosamuelhoh@gmail.com', '+44 07493 347 802'] }
 ];
 
 /* Neutral placeholder case copy (Samuel to replace per project). */
