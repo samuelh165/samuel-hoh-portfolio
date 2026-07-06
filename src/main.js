@@ -139,8 +139,14 @@ function animateWords(words, done) {
 
 /* ================= PROJECT SHEET ================= */
 
+/* TEMPORARY: recruiter-ready text-only mode. All sheets open straight to
+   the written copy; carousel + Learn more/less are skipped but fully intact.
+   When the image batch is ready, set TEXT_ONLY = false and everything
+   (carousel, toggle, per-project image counts) comes straight back. */
+const TEXT_ONLY = true;
+
 function openProject(item) {
-  const hasImages = (item.images || 0) > 0;
+  const hasImages = !TEXT_ONLY && (item.images || 0) > 0;
 
   /* head line: project name only (no face, no name masthead) */
   sheetHead.innerHTML = '';
@@ -185,7 +191,7 @@ function openProject(item) {
   const copy = item.caseCopy || PLACEHOLDER_CASE;
   caseText.innerHTML = copy.map(p => `<p>${p}</p>`).join('');
   caseText.classList.toggle('show', !hasImages); /* no images → straight to text */
-  caseText.classList.toggle('single', !hasImages); /* full-width left column, no split */
+  caseText.classList.toggle('single', item.t === 'sheet'); /* About / let's talk: full-width left column */
 
   sheet.scrollTop = 0;
   sheetWrap.classList.add('open');
