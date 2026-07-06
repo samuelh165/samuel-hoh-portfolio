@@ -48,11 +48,10 @@ body{
 /* ---------- 3D FACE (inline, replaces the old logo img) ---------- */
 .face-slot{
   display:inline-block;
-  height:1.5em;
+  height:1.2em;
   aspect-ratio:78/104;
   vertical-align:middle;
   margin:0 0.10em 0 0;
-  transform:translateY(0.18em);   /* nudge down to sit with the text baseline */
   cursor:pointer;
   opacity:0;
 }
