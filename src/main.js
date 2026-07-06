@@ -142,12 +142,10 @@ function animateWords(words, done) {
 function openProject(item) {
   const hasImages = (item.images || 0) > 0;
 
-  /* head line: face + name masthead + project title */
+  /* head line: project name only (no face, no name masthead) */
   sheetHead.innerHTML = '';
-  face.moveTo(sheetHead);
-  sheetHead.appendChild(document.createTextNode(' '));
-  const headWords = [face.slot];
-  ('Samuel Hoh. ' + item.s).split(' ').forEach(w => {
+  const headWords = [];
+  item.s.split(' ').forEach(w => {
     const s = mkWord(w);
     sheetHead.appendChild(s);
     sheetHead.appendChild(document.createTextNode(' '));
@@ -197,9 +195,6 @@ function openProject(item) {
 function closeSheet() {
   sheetWrap.classList.remove('open');
   document.body.style.overflow = '';
-  /* the face goes home to the top of the index */
-  face.moveTo(indexEl, faceAnchor.nextSibling);
-  face.slot.classList.add('on');
 }
 
 document.getElementById('backBtn').addEventListener('click', closeSheet);
