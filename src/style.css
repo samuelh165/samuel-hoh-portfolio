@@ -48,10 +48,13 @@ body{
 /* ---------- 3D FACE (inline, replaces the old logo img) ---------- */
 .face-slot{
   display:inline-block;
-  height:1.2em;
+  height:2.17em;                  /* Figma ratio: 104px face at 48px type */
   aspect-ratio:78/104;
   vertical-align:middle;
   margin:0 0.10em 0 0;
+  transform:translateY(-0.83em);  /* pins the bottom to the baseline; all
+                                      the extra height overhangs upward,
+                                      so it never collides with the line below */
   cursor:pointer;
   opacity:0;
 }
