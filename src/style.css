@@ -34,7 +34,7 @@ body{
 .index{
   padding:var(--pad);
   font-size:var(--fs);
-  line-height:1.62;         /* roomy enough that decor never touches the next line */
+  line-height:1.3;          /* tightened ~20%; decor height trimmed to match so it stays clear */
   letter-spacing:-0.03em;   /* Figma: -1.44px @ 48px */
   word-spacing:0.08em;
 }
@@ -51,7 +51,8 @@ body{
   height:1.5em;
   aspect-ratio:78/104;
   vertical-align:middle;
-  margin:0 0.14em 0 0;
+  margin:0 0.12em 0 0;
+  transform:translateY(0.14em);   /* nudge down to sit with the text baseline */
   cursor:pointer;
   opacity:0;
 }
@@ -71,7 +72,7 @@ a.lnk.u .w{text-decoration:underline;text-decoration-thickness:0.055em;text-unde
 .inl{
   display:inline-block;
   vertical-align:middle;
-  height:1.3em;
+  height:1.05em;
   margin:0 0.14em;
   background:var(--block);
   background-size:cover;
@@ -157,7 +158,7 @@ a.lnk.u .w{text-decoration:underline;text-decoration-thickness:0.055em;text-unde
 .sheet-head .w{opacity:0;}
 .sheet-head .w.on{opacity:1;}
 .sheet-head .w.loading{color:var(--accent);}
-.sheet-head .face-slot{height:1.15em;margin:0 0.14em 0 0;}
+.sheet-head .face-slot{height:1.15em;margin:0 0.12em 0 0;transform:translateY(0.1em);}
 
 .learn{
   color:inherit;
